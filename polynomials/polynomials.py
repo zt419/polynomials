@@ -5,7 +5,7 @@ class Polynomial:
 
     def degree(self):
 
-        return len(self.coefficients) - 1 
+        return len(self.coefficients) - 1
 
     def __str__(self):
 
@@ -17,10 +17,9 @@ class Polynomial:
             terms.append(str(coefs[0]))
 
         if self.degree() > 0 and coefs[1] > 0:
-            terms.append(f"{'' if coefs[1] == 1 else coefs[1]}x")
-        
-        terms += [f"{'' if c == 1 else c}x^{d}" 
-                 for d, c in enumerate(coefs[2:], start=2) if c]
+            terms.append(f"{'' if coefs[1] == 1 else coefs[1]}x")        
+        terms += [f"{'' if c == 1 else c}x^{d}"
+            for d, c in enumerate(coefs[2:], start=2) if c]
 
         return " + " .join(reversed(terms)) or "0"
 
@@ -42,18 +41,6 @@ class Polynomial:
 
         else:
             return NotImplemented
-            
+                         
     def __radd__(self, other):
         return self + other
-
-
-
-
-
-
-
-
-
-            
-
-
